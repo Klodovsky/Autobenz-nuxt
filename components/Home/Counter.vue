@@ -6,21 +6,27 @@
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="fun_text wow fadeInUp" data-wow-delay="0.1s">
               <span class="counter-icon"><i class="flaticon-car"></i></span>
-              <span class="counter">{{ cars.toLocaleString() }}</span>
+              <span class="counter home_title">{{
+                cars.toLocaleString()
+              }}</span>
               <h4>CARS FOR SALE</h4>
             </div>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="fun_text wow fadeInUp" data-wow-delay="0.2s">
               <span class="counter-icon"><i class="flaticon-user"></i></span>
-              <span class="counter">{{ visitors.toLocaleString() }}</span>
+              <span class="counter home_title">{{
+                visitors.toLocaleString()
+              }}</span>
               <h4>VISITORS PER DAY</h4>
             </div>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="fun_text wow fadeInUp" data-wow-delay="0.3s">
               <span class="counter-icon"><i class="flaticon-comment"></i></span>
-              <span class="counter">{{ reviews.toLocaleString() }}</span>
+              <span class="counter home_title">{{
+                reviews.toLocaleString()
+              }}</span>
               <h4>DEALER REVIEWS</h4>
             </div>
           </div>
@@ -29,7 +35,9 @@
               <span class="counter-icon"
                 ><i class="flaticon-agreement"></i
               ></span>
-              <span class="counter">{{ dealers.toLocaleString() }}</span>
+              <span class="counter home_title">{{
+                dealers.toLocaleString()
+              }}</span>
               <h4>VERIFIED DEALERS</h4>
             </div>
           </div>
@@ -73,9 +81,9 @@ export default {
         $elements.eq(index).fadeIn(1000, function () {
           var $self = $(this);
           setTimeout(function () {
-            $self.fadeOut(1000);
+            $self.fadeOut(1100);
             anim_loop((index + 1) % $elements.length);
-          }, 3000);
+          }, 4000);
         });
       }
 
@@ -105,16 +113,40 @@ export default {
 }
 
 #EN {
-  background: red;
+  background: transparent;
 }
 #FR {
-  background: green;
+  background: transparent;
 }
 #DE {
-  background: rgb(204, 225, 9);
+  background: transparent;
 }
 #FR {
-  background: rgb(11, 63, 218);
+  background: transparent;
+}
+.counter h4:before {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #db2d2e;
+  left: 50%;
+  margin-left: -10px;
+  bottom: 0;
+}
+.home_title::after {
+  display: block;
+  clear: both;
+  content: "";
+  position: relative;
+  left: 0;
+  bottom: 0;
+  max-width: 250px;
+  height: 1px;
+  width: 20%;
+  border-bottom: 1px solid #3078fb;
+  margin: 0 auto;
+  padding: 4px 0px;
 }
 @media (min-width: 992px) {
   .container {

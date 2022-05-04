@@ -1179,7 +1179,7 @@ div#preloader {
   text-align: center;
   border-radius: 3px;
   margin-bottom: 30px;
-  background: #f5f8fb;
+  background: transparent;
 }
 
 .fun_text .counter-icon {
@@ -1192,7 +1192,7 @@ div#preloader {
 }
 
 .fun_text .counter {
-  color: #abb2c0;
+  color: #a6adbc;
   display: block;
   font-size: 40px;
   padding-bottom: 10px;
@@ -1201,7 +1201,7 @@ div#preloader {
 }
 
 .fun_text>h4 {
-  color: #abb2c0;
+  color: #a6adbc;
   font-size: 18px;
   text-transform: capitalize;
   margin-bottom: 0px;
