@@ -2736,7 +2736,7 @@ input[type=checkbox]:checked+label:before {
   float: left;
   position: absolute;
   transform: rotate(0deg);
-  top: 147px;
+  top: 169px;
   text-align: center;
   width: 270px;
   font-size: 14px;

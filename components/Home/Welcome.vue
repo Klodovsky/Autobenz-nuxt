@@ -27,7 +27,7 @@
                         role="tab"
                         aria-controls="home"
                         aria-selected="true"
-                      >Cars</a
+                        >Cars</a
                       >
                     </li>
                     <li class="nav-item">
@@ -39,7 +39,7 @@
                         role="tab"
                         aria-controls="profile"
                         aria-selected="false"
-                      >Utility</a
+                        >Utility</a
                       >
                     </li>
                     <li class="nav-item">
@@ -51,7 +51,7 @@
                         role="tab"
                         aria-controls="contact"
                         aria-selected="false"
-                      >Bikes</a
+                        >Bikes</a
                       >
                     </li>
                   </ul>
@@ -60,10 +60,17 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-4 col-md-6" v-for="(car,idx) in cars" :key="idx">
+            <div
+              class="col-lg-4 col-md-6"
+              v-for="(car, idx) in cars"
+              :key="idx"
+            >
               <div class="car-box-3">
                 <div class="car-thumbnail">
-                  <nuxt-link :to="{name:'car-slug',params:{slug:car.car_id}}" class="car-img">
+                  <nuxt-link
+                    :to="{ name: 'car-slug', params: { slug: car.car_id } }"
+                    class="car-img"
+                  >
                     <div class="tag-2">
                       <div class="del-price">
                         <del>CHF {{ car.car_old_price }}</del>
@@ -72,8 +79,8 @@
                     </div>
                     <img
                       class="d-block w-100"
-                      v-if="car.media && car.media.length>0"
-                      :src="$imgUrl+car.media[0].file_name"
+                      v-if="car.media && car.media.length > 0"
+                      :src="$imgUrl + car.media[0].file_name"
                       alt="car"
                     />
                   </nuxt-link>
@@ -161,12 +168,16 @@
                 <div class="car-des-text_body">
                   <div class="row">
                     <div class="col">
-                      <nuxt-link :to="{name:'car-slug',params:{slug:car.car_id}}">
+                      <nuxt-link
+                        :to="{ name: 'car-slug', params: { slug: car.car_id } }"
+                      >
                         <h6>{{ car.car_title }}</h6>
                       </nuxt-link>
                     </div>
                     <div class="col">
-                      <div class="price pull-right pull-right">CHF {{ car.car_price }}</div>
+                      <div class="price pull-right pull-right">
+                        CHF {{ car.car_price }}
+                      </div>
                     </div>
                   </div>
                   <!-- <div class="location">
@@ -176,8 +187,13 @@
                                 </div> -->
                   <ul class="facilities-list clearfix">
                     <li><i class="flaticon-way"></i> {{ car.car_milage }}</li>
-                    <li><i class="flaticon-manual-transmission"></i> {{ car.make_name }}</li>
-                    <li><i class="flaticon-fuel"></i> {{ car.fuel_type_name }}</li>
+                    <li>
+                      <i class="flaticon-manual-transmission"></i>
+                      {{ car.make_name }}
+                    </li>
+                    <li>
+                      <i class="flaticon-fuel"></i> {{ car.fuel_type_name }}
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -207,11 +223,11 @@
           </div> -->
 
           <div v-if="pagination">
-            <p>Current page: {{ currentPage }}</p>
+            <!-- <p>Current page: {{ currentPage }}</p> -->
             <v-pagination
               v-model="currentPage"
               @change="pageChange"
-              :page-count="pagination.last_link?pagination.last_link:1"
+              :page-count="pagination.last_link ? pagination.last_link : 1"
               :classes="bootstrapPaginationClasses"
               :labels="paginationAnchorTexts"
             ></v-pagination>
@@ -476,11 +492,11 @@
 
 <script>
 import vPagination from "vue-plain-pagination";
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
   name: "Welcome",
-  components: {vPagination},
+  components: { vPagination },
 
   data() {
     return {
@@ -502,16 +518,16 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['cars', 'pagination']),
+    ...mapGetters(["cars", "pagination"]),
   },
   mounted() {
-    this.pageChange()
+    this.pageChange();
   },
   methods: {
     async pageChange() {
-      await this.$store.dispatch('getCar', this.currentPage)
-    }
-  }
+      await this.$store.dispatch("getCar", this.currentPage);
+    },
+  },
 };
 </script>
 
